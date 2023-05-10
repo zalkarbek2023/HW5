@@ -82,15 +82,10 @@ class ViewController: UIViewController {
     }
     
     private func configureProductArray() {
-        NetworkLayer.shared.fetchProductsData { result in
-            switch result {
-            case .success(let model):
-                self.takeAways = model.products
-                DispatchQueue.main.async { [self] in
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
+        Task {
+            do {
+                self.filteredTakeAways = try await NetworkLayer.shared.fetchProductsData().products
+                self.tableView.reloadData()
             }
         }
     }

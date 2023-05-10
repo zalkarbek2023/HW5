@@ -12,24 +12,13 @@ final class NetworkLayer {
     static let shared = NetworkLayer()
     private init() { }
     
-    func fetchProductsData(completion: @escaping (Result<MainProductModel, Error>) -> Void) {
-        
+    func fetchProductsData() async throws -> MainProductModel {
         let request = URLRequest(url: Constants.API.baseURL)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else { return }
-            self.decodeData(data: data, completion: completion)
-        }
-        task.resume()
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return try self.decode(data: data)
     }
     
-    func decodeData<T: Decodable>(data: Data, completion: @escaping (Result<T, Error>) -> Void) {
-        let decoder = JSONDecoder()
-        do {
-            let decodedData = try decoder.decode(T.self, from: data)
-            completion(.success(decodedData))
-        } catch {
-            completion(.failure(error))
-        }
+    private func decode<T: Decodable>(data: Data) throws -> T {
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
