@@ -68,6 +68,19 @@ class ViewController: UIViewController {
         StatusModel(name: "Skincare", image: UIImage(named: "skincare")!)
     ]
     
+    private var viewModel: ViewModel
+//     var characters: [RickCharacter] = []
+    
+    init() {
+        viewModel = ViewModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        viewModel = ViewModel()
+        super.init(coder: coder)
+    }
+    
     private var takeAways = [ProductModel]() {
         didSet {
             filteredTakeAways = takeAways
@@ -84,7 +97,7 @@ class ViewController: UIViewController {
     private func configureProductArray() {
         Task {
             do {
-                self.filteredTakeAways = try await NetworkLayer.shared.fetchProductsData().products
+                self.filteredTakeAways = try await viewModel.fetchProducts()
                 self.tableView.reloadData()
             }
         }

@@ -9,9 +9,6 @@ import UIKit
 
 final class NetworkLayer {
     
-    static let shared = NetworkLayer()
-    private init() { }
-    
     func fetchProductsData() async throws -> MainProductModel {
         let request = URLRequest(url: Constants.API.baseURL)
         let (data, _) = try await URLSession.shared.data(for: request)
