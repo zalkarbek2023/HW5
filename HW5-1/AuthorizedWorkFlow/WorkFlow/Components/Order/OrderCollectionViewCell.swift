@@ -12,18 +12,18 @@ class OrderCollectionViewCell: UICollectionViewCell {
     
     static var reuseID = String(describing: OrderCollectionViewCell.self)
     
-    private lazy var orderImageView: UIImageView = {
+     lazy var orderImageView: UIImageView = {
         let view = UIImageView()
         return view
     }()
     
-    private lazy var orderNameLabel: UILabel = {
+     lazy var orderNameLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var stackView: UIStackView = {
+     lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.addArrangedSubview(orderImageView)
         view.addArrangedSubview(orderNameLabel)

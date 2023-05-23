@@ -10,4 +10,5 @@ import UIKit
 struct StatusModel {
     let name: String
     let image: UIImage
+    var isSelected: Bool
 }

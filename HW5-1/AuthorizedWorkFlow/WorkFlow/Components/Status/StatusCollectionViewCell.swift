@@ -11,18 +11,18 @@ class StatusCollectionViewCell: UICollectionViewCell {
     
     static var reuseID = String(describing: StatusCollectionViewCell.self)
     
-    private lazy var statusImageView: UIImageView = {
+     lazy var statusImageView: UIImageView = {
         let view = UIImageView()
         return view
     }()
     
-    private lazy var statusNameLabel: UILabel = {
+     lazy var statusNameLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var stackView: UIStackView = {
+     lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.addArrangedSubview(statusImageView)
         view.addArrangedSubview(statusNameLabel)

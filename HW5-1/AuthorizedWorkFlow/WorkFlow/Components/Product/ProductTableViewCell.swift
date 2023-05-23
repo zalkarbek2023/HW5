@@ -13,53 +13,53 @@ class ProductTableViewCell: UITableViewCell {
 
     static var tableViewCellReuseID = String(describing: ProductTableViewCell.self)
     
-    private lazy var productImageView: UIImageView = {
+     lazy var productImageView: UIImageView = {
         let view = UIImageView()
         return view
     }()
     
-    private lazy var titleLabel: UILabel = {
+     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var descriptionLabel: UILabel = {
+     lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var starImageView: UIImageView = {
+     lazy var starImageView: UIImageView = {
         let view = UIImageView()
         return view
     }()
     
-    private lazy var ratingLabel: UILabel = {
+     lazy var ratingLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var priceLabel: UILabel = {
+     lazy var priceLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var categoryLabel: UILabel = {
+     lazy var categoryLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var brandLabel: UILabel = {
+     lazy var brandLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
     }()
     
-    private lazy var discountLabel: UILabel = {
+     lazy var discountLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: Constants.Font.fontSize16)
         return view
